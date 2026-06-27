@@ -2,7 +2,7 @@
 
 A data science case study that asks a simple but expensive question: *can we tell, in advance, which employees are likely to quit?*
 
-Using HR records for 1,470 employees, this project builds a machine learning model that flags at-risk employees before they hand in their resignation — and turns those findings into recommendations an HR team can actually act on.
+Using HR records for 1,470 employees, I built a machine learning model that flags at-risk employees before they hand in their resignation — and I turn those findings into recommendations HR can actually act on.
 
 ## Why this matters
 
@@ -32,11 +32,11 @@ A few findings stood out enough that they're worth knowing even before opening t
 
 The notebook walks through a fairly standard, careful pipeline:
 
-1. **Explore first.** Look at the data's shape, types, and how balanced the target is (only ~16% of employees actually left, so this isn't a 50/50 split).
-2. **Clean it up.** Drop columns that carry no real signal (like `EmployeeNumber`, which is just an ID), encode the target as 0/1, and one-hot encode categorical fields like department and job role.
+1. **Explore first.** I look at the data's shape, types, and how balanced the target is (only ~16% of employees actually left, so this isn't a 50/50 split).
+2. **Clean it up.** I drop columns that carry no real signal (like `EmployeeNumber`, which is just an ID), encode the target as 0/1, and one-hot encode categorical fields like department and job role.
 3. **Split before scaling.** The train/test split happens *before* any scaling, and the scaler is fit only on the training data — a small detail, but skipping it is one of the most common ways people accidentally let the test set "leak" into training.
-4. **Try a few models.** Logistic Regression, Random Forest, and Gradient Boosting were all trained and compared fairly, on the exact same data split.
-5. **Judge them honestly.** Rather than picking whichever model scored the highest accuracy, the comparison weighs Recall and F1 more heavily — because for HR, missing someone who was actually about to quit is a far more expensive mistake than flagging someone who was never at risk.
+4. **Try a few models.** I train Logistic Regression, Random Forest, and Gradient Boosting and compare them fairly on the exact same data split.
+5. **Judge them honestly.** Rather than picking whichever model scored the highest accuracy, I weigh Recall and F1 more heavily — because for HR, missing someone who was actually about to quit is a far more expensive mistake than flagging someone who was never at risk.
 
 **Logistic Regression ended up winning** — not the fanciest model, but the one that struck the best balance:
 
